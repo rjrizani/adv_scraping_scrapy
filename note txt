@@ -1,0 +1,14 @@
+pip install scrapy-impersonate
+scrapy genspider iherb_spider sg.iherb.com
+curl_cffi github
+scrapy crawl iherb_main
+
+from scrapy.utils.project import get_project_settings
+settings = get_project_settings()
+settings['DOWNLOAD_HANDLERS'] = {
+    "http": "scrapy_impersonate.ImpersonateDownloadHandler",
+    "https": "scrapy_impersonate.ImpersonateDownloadHandler",
+}
+settings['TWISTED_REACTOR'] = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
+
+fetch('https://sg.iherb.com/pr/california-gold-nutrition-gold-c-usp-grade-vitamin-c-1-000-mg-60-veggie-capsules/61864', meta={'impersonate':'chrome110'})

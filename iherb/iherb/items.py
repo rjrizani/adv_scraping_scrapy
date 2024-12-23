@@ -18,4 +18,6 @@ class IherbItem(scrapy.Item):
     rating: float = scrapy.Field()
     total_rating: int = scrapy.Field()
     in_stock: bool = scrapy.Field()
+    url : str = scrapy.Field()
+    img_url: str = scrapy.Field()
     data_scraped: datetime = scrapy.Field()

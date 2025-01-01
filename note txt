@@ -2,6 +2,8 @@ pip install scrapy-impersonate
 scrapy genspider iherb_spider sg.iherb.com
 curl_cffi github
 scrapy crawl iherb_main
+scrapy crawl iherb_main -o output.csv
+
 
 from scrapy.utils.project import get_project_settings
 settings = get_project_settings()
